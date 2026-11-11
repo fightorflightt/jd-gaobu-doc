@@ -1,0 +1,100 @@
+<svg viewBox="0 0 680 600" width="680" height="600" xmlns="http://www.w3.org/2000/svg">
+  <rect x="0" y="0" width="680" height="600" fill="#FFFFFF"/>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M2 1L8 5L2 9" fill="none" stroke="#888780" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+  </defs>
+  <text x="40" y="28" font-size="15" font-weight="500" fill="#26215C" font-family="PingFang SC, sans-serif">京东高补 · UML 活动图</text>
+
+  <rect x="40" y="44" width="180" height="26" rx="6" fill="#E6F1FB" stroke="#85B7EB" stroke-width="0.5"/>
+  <text x="130" y="57" text-anchor="middle" dominant-baseline="central" font-size="14" font-weight="500" fill="#0C447C" font-family="PingFang SC, sans-serif">系统（定时任务）</text>
+  <rect x="220" y="44" width="210" height="26" rx="6" fill="#E6F1FB" stroke="#85B7EB" stroke-width="0.5"/>
+  <text x="325" y="57" text-anchor="middle" dominant-baseline="central" font-size="14" font-weight="500" fill="#0C447C" font-family="PingFang SC, sans-serif">运营后台</text>
+  <rect x="430" y="44" width="210" height="26" rx="6" fill="#E1F5EE" stroke="#9FE1CB" stroke-width="0.5"/>
+  <text x="535" y="57" text-anchor="middle" dominant-baseline="central" font-size="14" font-weight="500" fill="#085041" font-family="PingFang SC, sans-serif">App 用户端</text>
+
+  <path d="M220 74 L220 580" fill="none" stroke="#B4B2A9" stroke-width="0.5" stroke-dasharray="4 3"/>
+  <path d="M430 74 L430 580" fill="none" stroke="#B4B2A9" stroke-width="0.5" stroke-dasharray="4 3"/>
+
+  <circle cx="130" cy="92" r="6" fill="#444441"/>
+  <path d="M130 98 L130 110" fill="none" stroke="#888780" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <g>
+    <rect x="50" y="112" width="160" height="52" rx="10" fill="#E6F1FB" stroke="#85B7EB" stroke-width="0.5"/>
+    <text x="130" y="130" text-anchor="middle" dominant-baseline="central" font-size="14" font-weight="500" fill="#0C447C" font-family="PingFang SC, sans-serif">全量同步商品池</text>
+    <text x="130" y="148" text-anchor="middle" dominant-baseline="central" font-size="12" fill="#185FA5" font-family="PingFang SC, sans-serif">每30分钟 · 新品默认下架</text>
+  </g>
+  <path d="M210 138 L238 138" fill="none" stroke="#888780" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <g>
+    <rect x="240" y="112" width="180" height="52" rx="10" fill="#E6F1FB" stroke="#85B7EB" stroke-width="0.5"/>
+    <text x="330" y="130" text-anchor="middle" dominant-baseline="central" font-size="14" font-weight="500" fill="#0C447C" font-family="PingFang SC, sans-serif">选品筛选</text>
+    <text x="330" y="148" text-anchor="middle" dominant-baseline="central" font-size="12" fill="#185FA5" font-family="PingFang SC, sans-serif">搜索 · 价格 · 佣金 · 补贴</text>
+  </g>
+  <path d="M330 164 L330 180" fill="none" stroke="#888780" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <g>
+    <rect x="240" y="182" width="180" height="52" rx="10" fill="#E6F1FB" stroke="#85B7EB" stroke-width="0.5"/>
+    <text x="330" y="200" text-anchor="middle" dominant-baseline="central" font-size="14" font-weight="500" fill="#0C447C" font-family="PingFang SC, sans-serif">编辑配置</text>
+    <text x="330" y="218" text-anchor="middle" dominant-baseline="central" font-size="12" fill="#185FA5" font-family="PingFang SC, sans-serif">补贴比例80%可调 · 分享素材</text>
+  </g>
+  <path d="M330 234 L330 250" fill="none" stroke="#888780" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <g>
+    <rect x="240" y="252" width="180" height="48" rx="10" fill="#E6F1FB" stroke="#85B7EB" stroke-width="0.5"/>
+    <text x="330" y="270" text-anchor="middle" dominant-baseline="central" font-size="14" font-weight="500" fill="#0C447C" font-family="PingFang SC, sans-serif">手动上架</text>
+    <text x="330" y="288" text-anchor="middle" dominant-baseline="central" font-size="12" fill="#185FA5" font-family="PingFang SC, sans-serif">仅上架商品进入 App</text>
+  </g>
+  <path d="M240 276 L212 276" fill="none" stroke="#888780" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <g>
+    <rect x="50" y="252" width="160" height="48" rx="10" fill="#E6F1FB" stroke="#85B7EB" stroke-width="0.5"/>
+    <text x="130" y="270" text-anchor="middle" dominant-baseline="central" font-size="14" font-weight="500" fill="#0C447C" font-family="PingFang SC, sans-serif">实时刷新数据</text>
+    <text x="130" y="288" text-anchor="middle" dominant-baseline="central" font-size="12" fill="#185FA5" font-family="PingFang SC, sans-serif">每1分钟 · 补贴与单数</text>
+  </g>
+  <path d="M130 300 L130 318" fill="none" stroke="#888780" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <polygon points="130,322 212,368 130,414 48,368" fill="#F1EFE8" stroke="#5F5E5A" stroke-width="0.5"/>
+  <text x="130" y="362" text-anchor="middle" dominant-baseline="central" font-size="14" font-weight="500" fill="#444441" font-family="PingFang SC, sans-serif">剩余单数 ≤ 0 ？</text>
+  <text x="130" y="380" text-anchor="middle" dominant-baseline="central" font-size="12" fill="#5F5E5A" font-family="PingFang SC, sans-serif">总单数 − 已抢单数</text>
+
+  <path d="M130 414 L130 436" fill="none" stroke="#888780" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <text x="142" y="426" text-anchor="start" dominant-baseline="central" font-size="12" fill="#791F1F" font-family="PingFang SC, sans-serif">[是]</text>
+
+  <g>
+    <rect x="50" y="438" width="160" height="68" rx="10" fill="#F1EFE8" stroke="#B4B2A9" stroke-width="0.5"/>
+    <text x="130" y="456" text-anchor="middle" dominant-baseline="central" font-size="14" font-weight="500" fill="#444441" font-family="PingFang SC, sans-serif">自动下架</text>
+    <text x="130" y="474" text-anchor="middle" dominant-baseline="central" font-size="12" fill="#5F5E5A" font-family="PingFang SC, sans-serif">App 不展示 · 后续无补贴</text>
+    <text x="130" y="492" text-anchor="middle" dominant-baseline="central" font-size="12" fill="#5F5E5A" font-family="PingFang SC, sans-serif">不自动恢复 · 需人工上架</text>
+  </g>
+  <path d="M130 506 L130 530" fill="none" stroke="#888780" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <circle cx="130" cy="540" r="7" fill="none" stroke="#444441" stroke-width="1.5"/>
+  <circle cx="130" cy="540" r="3.5" fill="#444441"/>
+
+  <path d="M212 368 L446 368" fill="none" stroke="#888780" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <text x="222" y="356" text-anchor="start" dominant-baseline="central" font-size="12" fill="#3B6D11" font-family="PingFang SC, sans-serif">[否 · 维持上架]</text>
+
+  <g>
+    <rect x="448" y="340" width="176" height="56" rx="10" fill="#E1F5EE" stroke="#9FE1CB" stroke-width="0.5"/>
+    <text x="536" y="360" text-anchor="middle" dominant-baseline="central" font-size="14" font-weight="500" fill="#085041" font-family="PingFang SC, sans-serif">App 前端展示</text>
+    <text x="536" y="380" text-anchor="middle" dominant-baseline="central" font-size="12" fill="#0F6E56" font-family="PingFang SC, sans-serif">超补爆品 · 已抢% · 剩余份数</text>
+  </g>
+  <path d="M536 396 L536 412" fill="none" stroke="#888780" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <g>
+    <rect x="448" y="414" width="176" height="52" rx="10" fill="#E1F5EE" stroke="#9FE1CB" stroke-width="0.5"/>
+    <text x="536" y="432" text-anchor="middle" dominant-baseline="central" font-size="14" font-weight="500" fill="#085041" font-family="PingFang SC, sans-serif">立即抢 / 分享赚</text>
+    <text x="536" y="450" text-anchor="middle" dominant-baseline="central" font-size="12" fill="#0F6E56" font-family="PingFang SC, sans-serif">复制文案链接 · 图文H5</text>
+  </g>
+  <path d="M536 466 L536 482" fill="none" stroke="#888780" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <g>
+    <rect x="448" y="484" width="176" height="52" rx="10" fill="#E1F5EE" stroke="#9FE1CB" stroke-width="0.5"/>
+    <text x="536" y="502" text-anchor="middle" dominant-baseline="central" font-size="14" font-weight="500" fill="#085041" font-family="PingFang SC, sans-serif">订单列表展示</text>
+    <text x="536" y="520" text-anchor="middle" dominant-baseline="central" font-size="12" fill="#0F6E56" font-family="PingFang SC, sans-serif">补贴标签 · 佣金+补贴拆分</text>
+  </g>
+  <path d="M536 536 L536 552" fill="none" stroke="#888780" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <circle cx="536" cy="564" r="7" fill="none" stroke="#085041" stroke-width="1.5"/>
+  <circle cx="536" cy="564" r="3.5" fill="#085041"/>
+</svg>

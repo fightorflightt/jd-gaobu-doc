@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>京东高补活动 · 全流程说明与字段口径 v1.0</title>
+<style>
+  :root{
+    --text-1:#1f2329; --text-2:#5f6368; --text-3:#8a8f98;
+    --brand:#26215C; --blue:#0C447C; --teal:#085041;
+    --border:#e5e6eb; --bg:#f7f8fa; --card:#ffffff;
+    --blue-bg:#E6F1FB; --teal-bg:#E1F5EE; --red:#A32D2D;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{font-family:"PingFang SC","Helvetica Neue",Arial,sans-serif;background:var(--bg);color:var(--text-1);line-height:1.75;font-size:15px}
+  .layout{max-width:1080px;margin:0 auto;display:flex;gap:32px;padding:40px 24px}
+  nav.toc{position:sticky;top:40px;align-self:flex-start;width:220px;flex-shrink:0;background:var(--card);border:1px solid var(--border);border-radius:12px;padding:16px;font-size:13px}
+  nav.toc .toc-title{font-weight:600;color:var(--brand);margin-bottom:10px;font-size:14px}
+  nav.toc a{display:block;color:var(--text-2);text-decoration:none;padding:5px 8px;border-radius:6px;line-height:1.5}
+  nav.toc a:hover{background:var(--blue-bg);color:var(--blue)}
+  main{flex:1;min-width:0}
+  header.doc{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:32px 36px;margin-bottom:24px}
+  header.doc h1{font-size:26px;color:var(--brand);margin-bottom:12px}
+  .meta{display:flex;flex-wrap:wrap;gap:8px 20px;font-size:13px;color:var(--text-3)}
+  .meta b{color:var(--text-2);font-weight:500}
+  section{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:28px 36px;margin-bottom:20px}
+  h2{font-size:19px;color:var(--brand);margin-bottom:16px;padding-bottom:10px;border-bottom:2px solid var(--blue-bg)}
+  h3{font-size:15px;color:var(--text-1);margin:18px 0 8px}
+  ol,ul{padding-left:22px;margin:8px 0}
+  li{margin-bottom:6px}
+  table{width:100%;border-collapse:collapse;margin:12px 0;font-size:13.5px}
+  th{background:#f2f3f5;color:var(--text-1);font-weight:600;text-align:left;padding:9px 12px;border:1px solid var(--border)}
+  td{padding:9px 12px;border:1px solid var(--border);color:var(--text-2);vertical-align:top}
+  tr:nth-child(even) td{background:#fafbfc}
+  .figure{text-align:center;margin:18px 0}
+  .figure img{max-width:100%;border:1px solid var(--border);border-radius:10px;background:#fff}
+  .figure figcaption{font-size:13px;color:var(--text-3);margin-top:8px}
+  .callout{background:#FFF7ED;border:1px solid #FED7AA;border-left:4px solid #EA580C;border-radius:8px;padding:12px 16px;margin:12px 0;font-size:14px;color:#7C2D12}
+  .formula{background:#F6F8FC;border:1px solid #DCE4F0;border-radius:8px;padding:10px 16px;font-family:"SF Mono",Menlo,monospace;font-size:13.5px;color:var(--blue);margin:8px 0}
+  .tag{display:inline-block;background:var(--blue-bg);color:var(--blue);border-radius:4px;padding:1px 8px;font-size:12px;margin-right:4px}
+  footer{color:var(--text-3);font-size:13px;text-align:center;padding:24px 0 8px}
+  @media(max-width:900px){.layout{flex-direction:column}nav.toc{position:static;width:100%}}
+</style>
+</head>
+<body>
+<div class="layout">
+<nav class="toc">
+  <div class="toc-title">目录</div>
+  <a href="#s1">一、活动概览</a>
+  <a href="#s2">二、后台配置流程</a>
+  <a href="#s3">三、补贴金额计算规则</a>
+  <a href="#s4">四、分享素材配置</a>
+  <a href="#s5">五、数据同步与自动下架</a>
+  <a href="#s6">六、App 前端展示</a>
+  <a href="#s7">七、订单列表展示</a>
+  <a href="#s8">八、全流程图</a>
+  <a href="#s9">九、UML 活动图</a>
+  <a href="#s10">十、系统时序图</a>
+  <a href="#s11">十一、商品状态机</a>
+  <a href="#s12">十二、字段口径表</a>
+  <a href="#s13">十三、计算口径与金额规范</a>
+  <a href="#s14">十四、开发资金底线</a>
+  <a href="#s15">十五、测试重点</a>
+  <a href="#s16">十六、待确认项</a>
+</nav>
+<main>
+<header class="doc">
+  <h1>京东高补活动 · 全流程说明与字段口径</h1>
+  <div class="meta">
+    <span><b>版本</b> v1.0</span>
+    <span><b>日期</b> 2026-11-07</span>
+    <span><b>范围</b> 后台上补贴 → App 前端展示 → 订单列表显示</span>
+    <span><b>读者</b> 开发 / 测试 / 运营</span>
+  </div>
+</header>
+
+<section id="s1">
+<h2>一、活动概览</h2>
+<table>
+<tr><th style="width:110px">项</th><th>内容</th></tr>
+<tr><td>活动形态</td><td>京东超补商品池接入，App 设「超补爆品 / 高补10点档」专区</td></tr>
+<tr><td>核心玩法</td><td>代理推广京东补贴商品，赚取佣金 + 代理补贴</td></tr>
+<tr><td>关键规则</td><td>代理补贴 = 京东实际补贴金额 × 有效补贴比例（默认 80%，单品可调）；补贴抢完（剩余 ≤ 0）自动下架</td></tr>
+<tr><td>参与角色</td><td>系统（定时任务）、运营（后台配置）、App 用户（代理/买家）</td></tr>
+</table>
+</section>
+
+<section id="s2">
+<h2>二、后台配置流程（运营操作）</h2>
+<ol>
+<li><b>商品来源</b>：系统每 30 分钟自动全量同步京东超补商品池，以 SKU ID 为唯一标识（已有则更新，没有则新增）；列表页「立即同步」可手动触发一次。</li>
+<li><b>选品筛选</b>：支持按商品名称/SKU 搜索，按价格、补贴金额、佣金比例、补贴比例做区间筛选。</li>
+<li><b>新品默认下架</b>：新同步进来的商品一律默认「下架」，运营手动「上架」后才在 App 展示。</li>
+<li><b>不覆盖原则</b>：接口同步只更新商品基础数据（名称、图片、价格、补贴金额、佣金、补贴总单数、已抢单数等），不覆盖运营已配置内容（上架状态、单品补贴比例、分享素材）。</li>
+</ol>
+</section>
+
+<section id="s3">
+<h2>三、补贴金额计算规则</h2>
+<ol>
+<li><b>代理补贴 = 京东实际补贴金额 × 补贴比例</b>，活动默认比例 80%。</li>
+<li>比例支持按单品调整（编辑商品 → 单品补贴比例）；<b>单品设置优先，未设置时继承活动默认比例</b>。</li>
+<li>编辑页实时显示「代理预计补贴」。</li>
+</ol>
+<div class="formula">代理预计补贴 = 京东实际补贴金额 × 有效补贴比例<br>例：¥15 × 75% = ¥11.25</div>
+</section>
+
+<section id="s4">
+<h2>四、分享素材配置</h2>
+<ol>
+<li>入口：编辑商品 → 分享素材；素材由「图片 + 文案」多条组成，可添加、删除、拖拽排序。</li>
+<li>「预览素材」可查看 App 端最终展示效果（图片文案按排序拼接），与买手逻辑一致。</li>
+</ol>
+</section>
+
+<section id="s5">
+<h2>五、数据同步与自动下架规则（重点）</h2>
+<ol>
+<li><b>全量商品池同步</b>：每 30 分钟一次，新增商品默认下架，不覆盖运营配置。</li>
+<li><b>上架商品实时刷新</b>：每 1 分钟刷新上架商品的补贴金额、总单数、已抢单数、佣金等。</li>
+<li><b>自动下架</b>：剩余单数 = 补贴总单数 − 已抢单数，<b>剩余 ≤ 0 时自动下架</b>，App 立即不展示，后续订单无补贴；剩余 &gt; 0 维持上架。</li>
+<li><b>边界规则</b>：
+  <ul>
+  <li>接口同步失败时不执行下架（防止误下架）；</li>
+  <li>自动下架后即使剩余单数回升，也不自动恢复上架，需运营人工重新上架；</li>
+  <li>自动下架记录：下架类型、原因、当时总单数/已抢/剩余、下架时间、接口最后同步时间。</li>
+  </ul>
+</li>
+<li>后台列表展示：状态（上架/下架/自动下架/商品失效）、同步状态（同步中/成功/失败）、补贴总单数、已抢单数、剩余单数、最后同步时间；「立即同步」执行中按钮置灰防重复点击。</li>
+</ol>
+</section>
+
+<section id="s6">
+<h2>六、App 前端展示</h2>
+<ol>
+<li><b>入口</b>：京东高佣页「超补爆品 / 高补10点档」专区，含业绩数据（今日/昨天/本月/上月）、搜索、榜单 Tab（2小时热销榜/高佣榜/今日热销榜）、分类筛选。</li>
+<li><b>商品卡片</b>：券后价、预计收益、已抢百分比、剩余份数（随接口实时更新）。</li>
+<li><b>按钮</b>：每个商品有「立即抢」「分享赚」。</li>
+<li><b>分享赚两种方式</b>：
+  <ul>
+  <li>复制：一键复制文案 + 链接；</li>
+  <li>立即推广：跳转图文推广页（后台配置的图片+文案），分享后落地 H5「爆款好物」页，买家经此下单。</li>
+  </ul>
+</li>
+</ol>
+</section>
+
+<section id="s7">
+<h2>七、订单列表展示</h2>
+<ol>
+<li>订单卡片带「补贴」标签和「京东高补」来源标识，与普通订单区分。</li>
+<li>预估佣金拆分为「佣金 ¥xx + 补贴 ¥xx」两行展示。</li>
+<li>支持我的订单/团队订单切换，按状态筛选（全部/已付款/已收货/已结算/已退款），支持订单号/商品标题搜索。</li>
+<li>下单后订单同步需要一定时间（页面有提示）。</li>
+</ol>
+</section>
+
+<section id="s8">
+<h2>八、全流程图</h2>
+<figure class="figure">
+  <img src="assets/flow.svg" alt="京东高补全流程图：后台同步商品池 → 运营选品 → 编辑配置 → 上架 → 剩余单数判定 → App 展示 → 订单列表">
+  <figcaption>图 1 · 京东高补全流程图（后台 → 判定 → App → 订单）</figcaption>
+</figure>
+</section>
+
+<section id="s9">
+<h2>九、UML 活动图</h2>
+<p>按三个泳道展示：系统（定时任务）、运营后台、App 用户端。</p>
+<figure class="figure">
+  <img src="assets/uml-activity.svg" alt="京东高补 UML 活动图，三泳道：系统定时任务、运营后台、App 用户端">
+  <figcaption>图 2 · UML 活动图（三泳道）</figcaption>
+</figure>
+</section>
+
+<section id="s10">
+<h2>十、系统时序图</h2>
+<p>四方交互（运营后台 / 后端服务 / 京东超补 API / App），分五个阶段。</p>
+<figure class="figure">
+  <img src="assets/sequence.svg" alt="京东高补系统时序图：全量同步、运营配置、实时刷新与自动下架判定、App 展示与交互、订单回流与查询">
+  <figcaption>图 3 · 系统时序图（五阶段）</figcaption>
+</figure>
+</section>
+
+<section id="s11">
+<h2>十一、商品状态机</h2>
+<figure class="figure">
+  <img src="assets/state-machine.svg" alt="商品状态机：下架（初始态）→ 上架 → 自动下架 / 商品失效（终态）">
+  <figcaption>图 4 · 商品状态机图（四状态 + 迁移规则）</figcaption>
+</figure>
+<table>
+<tr><th>状态</th><th>进入条件</th><th>允许操作</th><th>备注</th></tr>
+<tr><td>下架（初始态）</td><td>新品同步默认 / 运营手动下架</td><td>编辑、上架</td><td>App 不展示</td></tr>
+<tr><td>上架</td><td>运营手动上架</td><td>编辑、手动下架；每分钟刷新数据</td><td>App 展示</td></tr>
+<tr><td>自动下架</td><td>上架态且剩余单数 ≤ 0</td><td>人工重新上架</td><td>App 不展示、后续无补贴、记录留痕、不自动恢复</td></tr>
+<tr><td>商品失效（终态）</td><td>活动结束 / 商品下线</td><td>无</td><td>不可再上架，禁止回跳</td></tr>
+</table>
+<p><b>状态迁移规则</b>：① 状态单向流转，禁止回跳；② 同步失败不触发自动下架；③ 自动下架后单数回升不自动恢复；④ 仅下架/上架状态允许编辑比例与素材。</p>
+</section>
+
+<section id="s12">
+<h2>十二、字段口径表（数据字典）</h2>
+<table>
+<tr><th>字段</th><th>含义</th><th>类型/精度</th><th>来源 · 写入方</th><th>刷新频率</th><th>计算口径 / 规则</th><th>边界</th></tr>
+<tr><td>SKU ID</td><td>商品唯一标识</td><td>string</td><td>京东接口 · 系统</td><td>30min 全量</td><td>幂等键，按 SKU upsert；不覆盖运营配置</td><td>必填、唯一</td></tr>
+<tr><td>商品名称/图片/类目</td><td>展示基础信息</td><td>string / url</td><td>京东接口</td><td>30min</td><td>同步覆盖</td><td>—</td></tr>
+<tr><td>到手价（券后价）</td><td>商品券后价格</td><td>Decimal（分）</td><td>京东接口</td><td>1min</td><td>以服务端为准</td><td>≥ 0</td></tr>
+<tr><td>京东实际补贴金额</td><td>补贴计算基数</td><td>Decimal（分）</td><td>京东接口</td><td>1min</td><td>代理补贴的乘数基数</td><td>≥ 0</td></tr>
+<tr><td>活动默认补贴比例</td><td>全局默认比例</td><td>百分比</td><td>运营配置</td><td>手动</td><td>默认 80%，人工可调</td><td>0 &lt; r ≤ 100%</td></tr>
+<tr><td>单品补贴比例</td><td>单品级覆盖</td><td>百分比</td><td>运营编辑</td><td>手动</td><td>优先于活动默认；未设置继承默认</td><td>—</td></tr>
+<tr><td>有效补贴比例</td><td>实际生效比例</td><td>百分比</td><td>服务端计算</td><td>1min 重算</td><td>单品比例 ?? 活动默认比例</td><td>—</td></tr>
+<tr><td>代理预计补贴</td><td>给代理的补贴</td><td>Decimal（分）</td><td>服务端计算</td><td>1min 重算</td><td>= 京东实际补贴金额 × 有效补贴比例</td><td>舍入统一</td></tr>
+<tr><td>佣金 / 佣金比例</td><td>商品佣金</td><td>Decimal（分）/ 百分比</td><td>京东接口</td><td>1min</td><td>与补贴分列展示，不混算</td><td>≥ 0</td></tr>
+<tr><td>补贴总单数</td><td>活动补贴总名额</td><td>int</td><td>京东接口</td><td>1min</td><td>≥ 0</td><td>—</td></tr>
+<tr><td>已抢单数</td><td>已消耗单数</td><td>int</td><td>京东接口同步 · 只读</td><td>1min 实时</td><td>接口同步自动更新，前端实时展示</td><td>≤ 总单数</td></tr>
+<tr><td>剩余单数</td><td>可抢剩余单数</td><td>int</td><td>服务端计算</td><td>1min</td><td>= 总单数 − 已抢单数</td><td>≤ 0 触发自动下架</td></tr>
+<tr><td>商品状态</td><td>上架/下架/自动下架/失效</td><td>enum</td><td>运营 + 系统</td><td>事件驱动</td><td>单向流转，禁止回跳</td><td>—</td></tr>
+<tr><td>自动下架记录</td><td>下架留痕</td><td>struct</td><td>系统</td><td>事件触发</td><td>类型/原因/当时单数/时间/最后同步时间</td><td>—</td></tr>
+<tr><td>最后同步时间 · 同步状态</td><td>接口同步可观测</td><td>datetime / enum</td><td>系统</td><td>每次同步</td><td>同步中 / 成功 / 失败</td><td>失败不执行下架</td></tr>
+<tr><td>分享素材</td><td>图片 + 文案（有序）</td><td>list</td><td>运营编辑</td><td>手动</td><td>可增删、拖拽排序；预览与 H5 一致</td><td>—</td></tr>
+<tr><td>订单补贴标识</td><td>该订单是否享补贴</td><td>flag</td><td>系统</td><td>下单时</td><td>自动下架后产生的订单无补贴</td><td>—</td></tr>
+</table>
+</section>
+
+<section id="s13">
+<h2>十三、计算口径与金额规范</h2>
+<ol>
+<li>代理预计补贴 = 京东实际补贴金额 × 有效补贴比例（单品比例优先，否则活动默认 80%）。</li>
+<li>剩余单数 = 补贴总单数 − 已抢单数；剩余 ≤ 0 自动下架，App 不再返回该商品，后续订单无补贴。</li>
+<li>金额一律以「分」整数或 Decimal 存储计算，禁止浮点；舍入规则前后端统一（建议四舍五入到分，待确认）；所有金额由服务端算好下发，前端只展示。</li>
+</ol>
+</section>
+
+<section id="s14">
+<h2>十四、开发必须注意（资金场景底线，不可砍）</h2>
+<div class="callout">资金类需求必做三件套：幂等 + 对账 + 资损监控，任何排期压缩不得砍除。</div>
+<ul>
+<li><b>幂等</b>：同步按 SKU 幂等 upsert；自动下架、订单补贴标记重复触发不重复写入。</li>
+<li><b>状态一致性</b>：状态单向流转防回跳；自动下架后即使单数回升也不自动恢复。</li>
+<li><b>对账</b>：已抢单数 / 补贴金额以京东接口为准，订单侧补贴与后台单数可核对，差异留痕。</li>
+<li><b>资损监控</b>：负金额、已抢 &gt; 总单数、重复补贴、状态回跳四类异常告警。</li>
+</ul>
+</section>
+
+<section id="s15">
+<h2>十五、测试重点建议</h2>
+<ul>
+<li>筛选/搜索/立即同步功能及同步中防重复点击；</li>
+<li>单品比例修改后代理预计补贴计算（优先单品、否则默认 80%）；</li>
+<li>剩余单数边界：1 单保持上架、0 单触发自动下架、下架后 App 不展示、不自动恢复；</li>
+<li>同步失败场景不误下架；自动下架记录字段完整；</li>
+<li>分享赚两种方式（复制 / 图文 H5）及 H5 落地页下单归因；</li>
+<li>订单列表补贴标签、佣金+补贴拆分金额与后台数据一致。</li>
+</ul>
+</section>
+
+<section id="s16">
+<h2>十六、待确认项（以下为假设，需拍板）</h2>
+<ol>
+<li>舍入规则（四舍五入 / 向下取整到分）；</li>
+<li>已抢单数超过总单数时是否按总单数封顶；</li>
+<li>同步失败的重试次数与间隔、订单回流延迟容忍时长；</li>
+<li>订单侧「佣金 + 补贴」拆分金额是否按本文档口径落库。</li>
+</ol>
+</section>
+
+<footer>
+本方案为产品设计参考，具体实施请结合公司合规与法务要求确认。 · 京东高补活动全流程说明 v1.0
+</footer>
+</main>
+</div>
+</body>
+</html>

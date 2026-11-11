@@ -1,0 +1,75 @@
+<svg viewBox="0 0 680 738" width="680" height="738" xmlns="http://www.w3.org/2000/svg">
+  <rect x="0" y="0" width="680" height="738" fill="#FFFFFF"/>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M2 1L8 5L2 9" fill="none" stroke="#888780" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+  </defs>
+  <text x="40" y="30" font-size="15" font-weight="500" fill="#26215C" font-family="PingFang SC, sans-serif">京东高补 · 全流程图（后台 → 判定 → App → 订单）</text>
+
+  <g>
+    <rect x="200" y="46" width="280" height="56" rx="8" fill="#E6F1FB" stroke="#85B7EB" stroke-width="0.5"/>
+    <text x="340" y="66" text-anchor="middle" dominant-baseline="central" font-size="14" font-weight="500" fill="#0C447C" font-family="PingFang SC, sans-serif">① 系统全量同步商品池</text>
+    <text x="340" y="86" text-anchor="middle" dominant-baseline="central" font-size="12" fill="#185FA5" font-family="PingFang SC, sans-serif">每30分钟 · SKU唯一标识 · 新商品默认下架</text>
+  </g>
+  <path d="M340 102 L340 124" fill="none" stroke="#888780" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <g>
+    <rect x="200" y="126" width="280" height="56" rx="8" fill="#E6F1FB" stroke="#85B7EB" stroke-width="0.5"/>
+    <text x="340" y="146" text-anchor="middle" dominant-baseline="central" font-size="14" font-weight="500" fill="#0C447C" font-family="PingFang SC, sans-serif">② 运营选品与筛选</text>
+    <text x="340" y="166" text-anchor="middle" dominant-baseline="central" font-size="12" fill="#185FA5" font-family="PingFang SC, sans-serif">搜索 · 价格 · 佣金 · 补贴比例区间筛选</text>
+  </g>
+  <path d="M340 182 L340 204" fill="none" stroke="#888780" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <g>
+    <rect x="200" y="206" width="280" height="56" rx="8" fill="#E6F1FB" stroke="#85B7EB" stroke-width="0.5"/>
+    <text x="340" y="226" text-anchor="middle" dominant-baseline="central" font-size="14" font-weight="500" fill="#0C447C" font-family="PingFang SC, sans-serif">③ 编辑配置</text>
+    <text x="340" y="246" text-anchor="middle" dominant-baseline="central" font-size="12" fill="#185FA5" font-family="PingFang SC, sans-serif">补贴比例（默认80%，单品可调）· 分享素材图文</text>
+  </g>
+  <path d="M340 262 L340 284" fill="none" stroke="#888780" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <g>
+    <rect x="200" y="286" width="280" height="56" rx="8" fill="#E6F1FB" stroke="#85B7EB" stroke-width="0.5"/>
+    <text x="340" y="306" text-anchor="middle" dominant-baseline="central" font-size="14" font-weight="500" fill="#0C447C" font-family="PingFang SC, sans-serif">④ 运营手动上架</text>
+    <text x="340" y="326" text-anchor="middle" dominant-baseline="central" font-size="12" fill="#185FA5" font-family="PingFang SC, sans-serif">上架商品每1分钟实时刷新补贴与单数</text>
+  </g>
+  <path d="M340 342 L340 360" fill="none" stroke="#888780" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <polygon points="340,364 452,412 340,460 228,412" fill="#F1EFE8" stroke="#5F5E5A" stroke-width="0.5"/>
+  <text x="340" y="404" text-anchor="middle" dominant-baseline="central" font-size="14" font-weight="500" fill="#444441" font-family="PingFang SC, sans-serif">剩余单数 ≤ 0 ？</text>
+  <text x="340" y="422" text-anchor="middle" dominant-baseline="central" font-size="12" fill="#5F5E5A" font-family="PingFang SC, sans-serif">总单数 − 已抢单数</text>
+
+  <path d="M228 412 L198 412" fill="none" stroke="#888780" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <text x="214" y="400" text-anchor="middle" dominant-baseline="central" font-size="12" fill="#791F1F" font-family="PingFang SC, sans-serif">是</text>
+
+  <g>
+    <rect x="24" y="376" width="172" height="72" rx="8" fill="#F1EFE8" stroke="#B4B2A9" stroke-width="0.5"/>
+    <text x="110" y="394" text-anchor="middle" dominant-baseline="central" font-size="14" font-weight="500" fill="#444441" font-family="PingFang SC, sans-serif">自动下架</text>
+    <text x="110" y="412" text-anchor="middle" dominant-baseline="central" font-size="12" fill="#5F5E5A" font-family="PingFang SC, sans-serif">App 立即不展示</text>
+    <text x="110" y="428" text-anchor="middle" dominant-baseline="central" font-size="12" fill="#5F5E5A" font-family="PingFang SC, sans-serif">后续订单无补贴</text>
+    <text x="110" y="444" text-anchor="middle" dominant-baseline="central" font-size="12" fill="#5F5E5A" font-family="PingFang SC, sans-serif">不自动恢复 · 需人工上架</text>
+  </g>
+
+  <path d="M340 460 L340 486" fill="none" stroke="#888780" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <text x="352" y="474" text-anchor="start" dominant-baseline="central" font-size="12" fill="#3B6D11" font-family="PingFang SC, sans-serif">否 · 维持上架</text>
+
+  <g>
+    <rect x="200" y="488" width="280" height="56" rx="8" fill="#E1F5EE" stroke="#9FE1CB" stroke-width="0.5"/>
+    <text x="340" y="508" text-anchor="middle" dominant-baseline="central" font-size="14" font-weight="500" fill="#085041" font-family="PingFang SC, sans-serif">⑤ App 前端展示</text>
+    <text x="340" y="528" text-anchor="middle" dominant-baseline="central" font-size="12" fill="#0F6E56" font-family="PingFang SC, sans-serif">超补爆品专区 · 已抢% · 剩余份数实时更新</text>
+  </g>
+  <path d="M340 544 L340 566" fill="none" stroke="#888780" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <g>
+    <rect x="200" y="568" width="280" height="56" rx="8" fill="#E1F5EE" stroke="#9FE1CB" stroke-width="0.5"/>
+    <text x="340" y="588" text-anchor="middle" dominant-baseline="central" font-size="14" font-weight="500" fill="#085041" font-family="PingFang SC, sans-serif">⑥ 用户操作</text>
+    <text x="340" y="608" text-anchor="middle" dominant-baseline="central" font-size="12" fill="#0F6E56" font-family="PingFang SC, sans-serif">立即抢 / 分享赚（复制文案链接 · 图文H5推广）</text>
+  </g>
+  <path d="M340 624 L340 646" fill="none" stroke="#888780" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <g>
+    <rect x="200" y="648" width="280" height="56" rx="8" fill="#E1F5EE" stroke="#9FE1CB" stroke-width="0.5"/>
+    <text x="340" y="668" text-anchor="middle" dominant-baseline="central" font-size="14" font-weight="500" fill="#085041" font-family="PingFang SC, sans-serif">⑦ 订单列表展示</text>
+    <text x="340" y="688" text-anchor="middle" dominant-baseline="central" font-size="12" fill="#0F6E56" font-family="PingFang SC, sans-serif">补贴标签 · 佣金+补贴拆分 · 状态筛选</text>
+  </g>
+</svg>

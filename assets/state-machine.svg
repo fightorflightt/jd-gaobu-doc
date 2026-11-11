@@ -1,0 +1,65 @@
+<svg viewBox="0 0 680 470" width="680" height="470" xmlns="http://www.w3.org/2000/svg">
+  <rect x="0" y="0" width="680" height="470" fill="#FFFFFF"/>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M2 1L8 5L2 9" fill="none" stroke="#888780" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+  </defs>
+  <text x="40" y="28" font-size="15" font-weight="500" fill="#26215C" font-family="PingFang SC, sans-serif">京东高补 · 商品状态机图</text>
+
+  <circle cx="90" cy="130" r="7" fill="#444441"/>
+  <text x="90" y="110" text-anchor="middle" dominant-baseline="central" font-size="12" fill="#5F5E5A" font-family="PingFang SC, sans-serif">新品同步</text>
+  <path d="M97 130 L156 130" fill="none" stroke="#888780" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <g>
+    <rect x="160" y="100" width="170" height="60" rx="10" fill="#E6F1FB" stroke="#85B7EB" stroke-width="0.5"/>
+    <text x="245" y="120" text-anchor="middle" dominant-baseline="central" font-size="14" font-weight="500" fill="#0C447C" font-family="PingFang SC, sans-serif">下架（初始态）</text>
+    <text x="245" y="142" text-anchor="middle" dominant-baseline="central" font-size="12" fill="#185FA5" font-family="PingFang SC, sans-serif">可编辑 · 可上架 · App 不展示</text>
+  </g>
+
+  <path d="M330 130 L420 130" fill="none" stroke="#888780" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <text x="375" y="118" text-anchor="middle" dominant-baseline="central" font-size="12" fill="#3B6D11" font-family="PingFang SC, sans-serif">运营手动上架</text>
+
+  <g>
+    <rect x="424" y="100" width="170" height="60" rx="10" fill="#E1F5EE" stroke="#9FE1CB" stroke-width="0.5"/>
+    <text x="509" y="120" text-anchor="middle" dominant-baseline="central" font-size="14" font-weight="500" fill="#085041" font-family="PingFang SC, sans-serif">上架</text>
+    <text x="509" y="142" text-anchor="middle" dominant-baseline="central" font-size="12" fill="#0F6E56" font-family="PingFang SC, sans-serif">App 展示 · 每分钟刷新数据</text>
+  </g>
+
+  <path d="M594 148 L640 148 L640 250 L601 250" fill="none" stroke="#888780" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <text x="640" y="200" text-anchor="end" dominant-baseline="central" font-size="12" fill="#5F5E5A" font-family="PingFang SC, sans-serif">运营手动下架</text>
+
+  <path d="M424 155 L334 200" fill="none" stroke="#888780" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <text x="360" y="188" text-anchor="middle" dominant-baseline="central" font-size="12" fill="#791F1F" font-family="PingFang SC, sans-serif">剩余单数 ≤ 0</text>
+
+  <g>
+    <rect x="160" y="205" width="170" height="72" rx="10" fill="#F1EFE8" stroke="#B4B2A9" stroke-width="0.5"/>
+    <text x="245" y="225" text-anchor="middle" dominant-baseline="central" font-size="14" font-weight="500" fill="#444441" font-family="PingFang SC, sans-serif">自动下架</text>
+    <text x="245" y="243" text-anchor="middle" dominant-baseline="central" font-size="12" fill="#5F5E5A" font-family="PingFang SC, sans-serif">App 不展示 · 后续订单无补贴</text>
+    <text x="245" y="261" text-anchor="middle" dominant-baseline="central" font-size="12" fill="#5F5E5A" font-family="PingFang SC, sans-serif">记录下架原因/单数/时间</text>
+  </g>
+
+  <path d="M330 241 L420 241" fill="none" stroke="#888780" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <text x="375" y="229" text-anchor="middle" dominant-baseline="central" font-size="12" fill="#3B6D11" font-family="PingFang SC, sans-serif">人工重新上架</text>
+
+  <path d="M509 160 L509 340" fill="none" stroke="#888780" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <text x="560" y="300" text-anchor="middle" dominant-baseline="central" font-size="12" fill="#5F5E5A" font-family="PingFang SC, sans-serif">商品失效（活动结束/下线）</text>
+
+  <g>
+    <rect x="424" y="344" width="170" height="60" rx="10" fill="#F1EFE8" stroke="#B4B2A9" stroke-width="0.5"/>
+    <text x="509" y="364" text-anchor="middle" dominant-baseline="central" font-size="14" font-weight="500" fill="#444441" font-family="PingFang SC, sans-serif">商品失效（终态）</text>
+    <text x="509" y="386" text-anchor="middle" dominant-baseline="central" font-size="12" fill="#5F5E5A" font-family="PingFang SC, sans-serif">App 不展示 · 不可再上架</text>
+  </g>
+  <circle cx="509" cy="434" r="7" fill="none" stroke="#444441" stroke-width="1.5"/>
+  <circle cx="509" cy="434" r="3.5" fill="#444441"/>
+  <path d="M509 404 L509 425" fill="none" stroke="#888780" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <g>
+    <rect x="40" y="330" width="330" height="112" rx="8" fill="#FAF7F0" stroke="#D3D1C7" stroke-width="0.5"/>
+    <text x="56" y="350" text-anchor="start" dominant-baseline="central" font-size="14" font-weight="500" fill="#444441" font-family="PingFang SC, sans-serif">状态迁移规则</text>
+    <text x="56" y="370" text-anchor="start" dominant-baseline="central" font-size="12" fill="#5F5E5A" font-family="PingFang SC, sans-serif">1. 状态单向流转，禁止回跳（失效后不可恢复）</text>
+    <text x="56" y="388" text-anchor="start" dominant-baseline="central" font-size="12" fill="#5F5E5A" font-family="PingFang SC, sans-serif">2. 同步失败不触发自动下架，防止误下架</text>
+    <text x="56" y="406" text-anchor="start" dominant-baseline="central" font-size="12" fill="#5F5E5A" font-family="PingFang SC, sans-serif">3. 自动下架后单数回升也不自动重新上架</text>
+    <text x="56" y="424" text-anchor="start" dominant-baseline="central" font-size="12" fill="#5F5E5A" font-family="PingFang SC, sans-serif">4. 仅下架/上架状态允许编辑比例与素材</text>
+  </g>
+</svg>
